@@ -1,7 +1,7 @@
 :::::::::::::::::::::::::::::::::::::::::::
 :: Take Ownership of UnityEngine.dll - Prevent DMM from patching your translation
 :: Partly by Globalnet
-:: V 1.0 - 4/17/2020
+:: V 1.1 - 4/17/2020
 :: Requires Administrator Privileges
 :: Run in your \alicegearaegisexe\alice_Data\Managed folder
 ::::::::::::::::::::::::::::::::::::::::::::
@@ -67,7 +67,7 @@
  ::::::::::::::::::::::::::::
 takeown /F UnityEngine.dll
 attrib +R UnityEngine.dll
-ECHO Chainging Privileges now.
+ECHO Changing privs now. Confirmation required
 cacls UnityEngine.dll  /P Everyone:r "Authenticated Users:R" "Users:R" SYSTEM:R Administrators:R
 ECHO You may now exit this program
 cmd /k
