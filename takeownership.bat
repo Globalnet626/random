@@ -3,6 +3,7 @@
 :: Partly by Globalnet
 :: V 1.0 - 4/17/2020
 :: Requires Administrator Privileges
+:: Run in your \alicegearaegisexe\alice_Data\Managed folder
 ::::::::::::::::::::::::::::::::::::::::::::
 :: Elevate.cmd - Version 4 -Matt from StackOverflow
 :: Automatically check & get admin rights
@@ -15,6 +16,7 @@
  ECHO Take Ownership of UnityEngine.dll - Prevent DMM from patching your translation
  ECHO Partly by Globalnet - V 1.0 - 4/17/2020
  ECHO UAC elevate portion by Matt from StackOverflow
+ ECHO Run in your \alicegearaegisexe\alice_Data\Managed folder
  ECHO =============================
 
 :init
