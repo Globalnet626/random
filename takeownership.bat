@@ -14,7 +14,7 @@
  ECHO.
  ECHO =============================
  ECHO Take Ownership of UnityEngine.dll + Assembly-CSharp.dll - Prevent DMM from patching your stuff
- ECHO Partly by Globalnet - V 1.0 - 4/17/2020
+ ECHO Partly by Globalnet - V 1.5 - 4/20/2020
  ECHO UAC elevate portion by Matt from StackOverflow
  ECHO Run in your \alicegearaegisexe\alice_Data\Managed folder
  ECHO =============================
