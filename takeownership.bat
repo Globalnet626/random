@@ -67,10 +67,12 @@
  ::::::::::::::::::::::::::::
 takeown /F UnityEngine.dll
 attrib +R UnityEngine.dll
+takeown /F Assembly-CSharp.dll
+attrib +R Assembly-CSharp.dll
 ECHO Changing privs now. Confirmation required
-ECHO Take ownership of UnityEngine.dll?
+ECHO Change privs for UnityEngine.dll?
 cacls UnityEngine.dll  /P Everyone:r "Authenticated Users:R" "Users:R" SYSTEM:R Administrators:R
-ECHO Take ownership of UnityEngine.dll?
+ECHO Change privs for UnityEngine.dll?
 cacls Assembly-CSharp.dll  /P Everyone:r "Authenticated Users:R" "Users:R" SYSTEM:R Administrators:R
 ECHO You may now exit this program
 cmd /k
