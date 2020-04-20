@@ -1,5 +1,5 @@
 :::::::::::::::::::::::::::::::::::::::::::
-:: Take Ownership of UnityEngine.dll - Prevent DMM from patching your translation
+:: Take Ownership of UnityEngine.dll + Assembly-CSharp.dll - Prevent DMM from patching your stuff
 :: Partly by Globalnet
 :: V 1.1 - 4/17/2020
 :: Requires Administrator Privileges
@@ -13,7 +13,7 @@
  CLS
  ECHO.
  ECHO =============================
- ECHO Take Ownership of UnityEngine.dll - Prevent DMM from patching your translation
+ ECHO Take Ownership of UnityEngine.dll + Assembly-CSharp.dll - Prevent DMM from patching your stuff
  ECHO Partly by Globalnet - V 1.0 - 4/17/2020
  ECHO UAC elevate portion by Matt from StackOverflow
  ECHO Run in your \alicegearaegisexe\alice_Data\Managed folder
@@ -68,6 +68,9 @@
 takeown /F UnityEngine.dll
 attrib +R UnityEngine.dll
 ECHO Changing privs now. Confirmation required
+ECHO Take ownership of UnityEngine.dll?
 cacls UnityEngine.dll  /P Everyone:r "Authenticated Users:R" "Users:R" SYSTEM:R Administrators:R
+ECHO Take ownership of UnityEngine.dll?
+cacls Assembly-CSharp.dll  /P Everyone:r "Authenticated Users:R" "Users:R" SYSTEM:R Administrators:R
 ECHO You may now exit this program
 cmd /k
