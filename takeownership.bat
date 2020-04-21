@@ -72,7 +72,7 @@ takeown /F Assembly-CSharp.dll
 
 ECHO Changing privs now. Confirmation required
 ECHO Change privs for UnityEngine.dll?
-cacls UnityEngine.dll  /P Everyone:r "Authenticated Users:R" "Users:R" SYSTEM:R Administrators:R
+ECHO y | cacls UnityEngine.dll  /P Everyone:r "Authenticated Users:R" "Users:R" SYSTEM:R Administrators:R
 
 ECHO Assembly-CSharp.dll options
 ECHO 1.) Enable editing (DMM will also be able to patch the file)
@@ -86,7 +86,8 @@ IF "%input%"=="2" GOTO :2
 attrib +R Assembly-CSharp.dll
 ECHO Change privs for Assembly-CSharp.dll?
 ECHO y | cacls Assembly-CSharp.dll  /P Everyone:r "Authenticated Users:R" "Users:R" SYSTEM:R Administrators:R
-ECHO You may now exit this program
+ECHO 
+ECHO Done!
 pause
 exit
 :end 
@@ -95,6 +96,6 @@ ECHO Change privs for Assembly-CSharp.dll?
 ECHO y | cacls Assembly-CSharp.dll  /P Everyone:C "Authenticated Users:C" "Users:C" SYSTEM:C Administrators:C
 attrib -R Assembly-CSharp.dll
 :end
-ECHO You may now exit this program
+ECHO Done!
 pause
 exit
