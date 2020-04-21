@@ -1,7 +1,7 @@
 :::::::::::::::::::::::::::::::::::::::::::
 :: Take Ownership of UnityEngine.dll + Assembly-CSharp.dll - Prevent DMM from patching your stuff
 :: Partly by Globalnet
-:: V 1.5 - 4/20/2020
+:: V 1.6 - 4/21/2020
 :: Requires Administrator Privileges
 :: Run in your \alicegearaegisexe\alice_Data\Managed folder
 ::::::::::::::::::::::::::::::::::::::::::::
@@ -14,7 +14,7 @@
  ECHO.
  ECHO =============================
  ECHO Take Ownership of UnityEngine.dll + Assembly-CSharp.dll - Prevent DMM from patching your stuff
- ECHO Partly by Globalnet - V 1.5 - 4/20/2020
+ ECHO Partly by Globalnet - V 1.6 - 4/21/2020
  ECHO UAC elevate portion by Matt from StackOverflow
  ECHO Run in your \alicegearaegisexe\alice_Data\Managed folder
  ECHO =============================
@@ -85,14 +85,16 @@ IF "%input%"=="2" GOTO :2
 :2
 attrib +R Assembly-CSharp.dll
 ECHO Change privs for Assembly-CSharp.dll?
-cacls Assembly-CSharp.dll  /P Everyone:r "Authenticated Users:R" "Users:R" SYSTEM:R Administrators:R
+ECHO y | cacls Assembly-CSharp.dll  /P Everyone:r "Authenticated Users:R" "Users:R" SYSTEM:R Administrators:R
 ECHO You may now exit this program
-cmd /k
+pause
+exit
 :end 
 :1
 ECHO Change privs for Assembly-CSharp.dll?
-cacls Assembly-CSharp.dll  /P Everyone:C "Authenticated Users:C" "Users:C" SYSTEM:C Administrators:C
+ECHO y | cacls Assembly-CSharp.dll  /P Everyone:C "Authenticated Users:C" "Users:C" SYSTEM:C Administrators:C
 attrib -R Assembly-CSharp.dll
 :end
 ECHO You may now exit this program
-cmd /k
+pause
+exit
