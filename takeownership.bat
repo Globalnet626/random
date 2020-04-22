@@ -1,7 +1,7 @@
 :::::::::::::::::::::::::::::::::::::::::::
 :: Take Ownership of UnityEngine.dll + Assembly-CSharp.dll - Prevent DMM from patching your stuff
 :: Partly by Globalnet
-:: V 1.6 - 4/21/2020
+:: V 1.7 - 4/21/2020
 :: Requires Administrator Privileges
 :: Run in your \alicegearaegisexe\alice_Data\Managed folder
 ::::::::::::::::::::::::::::::::::::::::::::
@@ -71,8 +71,12 @@ attrib +R UnityEngine.dll
 takeown /F Assembly-CSharp.dll
 
 ECHO Changing privs now. Confirmation required
-ECHO Change privs for UnityEngine.dll?
-ECHO y | cacls UnityEngine.dll  /P Everyone:r "Authenticated Users:R" "Users:R" SYSTEM:R Administrators:R
+ECHO Change privs for UnityEngine.dll
+ECHO y | icacls UnityEngine.dll  /grant:r  *S-1-1-0:(oi)(ci)rx 
+ECHO y | icacls UnityEngine.dll  /grant:r  *S-1-5-11:(oi)(ci)rx 
+ECHO y | icacls UnityEngine.dll  /grant:r  *S-1-5-32-545:(oi)(ci)rx 
+ECHO y | icacls UnityEngine.dll  /grant:r  *S-1-5-18:(oi)(ci)rx 
+ECHO y | icacls UnityEngine.dll  /grant:r  *S-1-5-32-544:(oi)(ci)rx
 
 ECHO Assembly-CSharp.dll options
 ECHO 1.) Enable editing (DMM will also be able to patch the file)
@@ -84,8 +88,12 @@ IF "%input%"=="1" GOTO :1
 IF "%input%"=="2" GOTO :2
 :2
 attrib +R Assembly-CSharp.dll
-ECHO Change privs for Assembly-CSharp.dll?
-ECHO y | cacls Assembly-CSharp.dll  /P Everyone:r "Authenticated Users:R" "Users:R" SYSTEM:R Administrators:R
+ECHO Change privs for Assembly-CSharp.dll
+ECHO y | icacls Assembly-CSharp.dll  /grant:r  *S-1-1-0:(oi)(ci)rx 
+ECHO y | icacls Assembly-CSharp.dll  /grant:r  *S-1-5-11:(oi)(ci)rx 
+ECHO y | icacls Assembly-CSharp.dll  /grant:r  *S-1-5-32-545:(oi)(ci)rx 
+ECHO y | icacls Assembly-CSharp.dll  /grant:r  *S-1-5-18:(oi)(ci)rx 
+ECHO y | icacls Assembly-CSharp.dll  /grant:r  *S-1-5-32-544:(oi)(ci)rx
 ECHO 
 ECHO Done!
 pause
@@ -93,7 +101,11 @@ exit
 :end 
 :1
 ECHO Change privs for Assembly-CSharp.dll?
-ECHO y | cacls Assembly-CSharp.dll  /P Everyone:C "Authenticated Users:C" "Users:C" SYSTEM:C Administrators:C
+ECHO y | icacls Assembly-CSharp.dll  /grant:r  *S-1-1-0:(oi)(ci)m 
+ECHO y | icacls Assembly-CSharp.dll  /grant:r  *S-1-5-11:(oi)(ci)m 
+ECHO y | icacls Assembly-CSharp.dll  /grant:r  *S-1-5-32-545:(oi)(ci)m 
+ECHO y | icacls Assembly-CSharp.dll  /grant:r  *S-1-5-18:(oi)(ci)m 
+ECHO y | icacls Assembly-CSharp.dll  /grant:r  *S-1-5-32-544:(oi)(ci)m
 attrib -R Assembly-CSharp.dll
 :end
 ECHO Done!
